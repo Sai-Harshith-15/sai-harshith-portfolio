@@ -18,7 +18,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'hello@developer.ai',
+    value: 'saiharshithvanga@gmail.com',
     href: 'mailto:hello@developer.ai',
     color: '#6366f1',
   },
