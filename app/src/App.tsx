@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback  } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Navigation from './sections/Navigation';
 import Hero from './sections/Hero';
@@ -24,10 +24,12 @@ function App() {
     setIsLoaded(true);
   }, []);
 
+  
+
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-x-hidden">
       {/* Animated Background */}
-      <motion.div 
+      <motion.div
         className="fixed inset-0 z-0"
         style={{ y: backgroundY }}
       >
