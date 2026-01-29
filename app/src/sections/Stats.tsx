@@ -1,15 +1,15 @@
-import { useRef, useEffect, useState } from 'react';
-import { motion, useInView, useSpring, useTransform } from 'framer-motion';
-import { 
-  Briefcase, 
-  Code2, 
-  Users, 
+import { useRef, useEffect, useState } from "react";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import {
+  Briefcase,
+  Code2,
+  Users,
   Award,
   TrendingUp,
   Clock,
   Zap,
-  Target
-} from 'lucide-react';
+  Target,
+} from "lucide-react";
 
 interface StatItemProps {
   value: number;
@@ -20,15 +20,21 @@ interface StatItemProps {
   delay: number;
 }
 
-const AnimatedCounter = ({ value, suffix = '' }: { value: number; suffix?: string }) => {
+const AnimatedCounter = ({
+  value,
+  suffix = "",
+}: {
+  value: number;
+  suffix?: string;
+}) => {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const spring = useSpring(0, { 
-    stiffness: 50, 
+  const spring = useSpring(0, {
+    stiffness: 50,
     damping: 20,
-    duration: 2 
+    duration: 2,
   });
 
   const display = useTransform(spring, (current) => Math.floor(current));
@@ -48,12 +54,20 @@ const AnimatedCounter = ({ value, suffix = '' }: { value: number; suffix?: strin
 
   return (
     <span ref={ref}>
-      {displayValue}{suffix}
+      {displayValue}
+      {suffix}
     </span>
   );
 };
 
-const StatItem = ({ value, suffix, label, icon: Icon, color, delay }: StatItemProps) => {
+const StatItem = ({
+  value,
+  suffix,
+  label,
+  icon: Icon,
+  color,
+  delay,
+}: StatItemProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -63,9 +77,9 @@ const StatItem = ({ value, suffix, label, icon: Icon, color, delay }: StatItemPr
       whileHover={{ scale: 1.05, y: -5 }}
       className="glass rounded-2xl p-6 text-center group cursor-pointer"
     >
-      <div 
+      <div
         className="w-14 h-14 rounded-xl mx-auto mb-4 flex items-center justify-center transition-transform group-hover:scale-110"
-        style={{ 
+        style={{
           background: `linear-gradient(135deg, ${color}20, ${color}10)`,
           border: `1px solid ${color}40`,
           boxShadow: `0 0 20px ${color}20`,
@@ -73,54 +87,78 @@ const StatItem = ({ value, suffix, label, icon: Icon, color, delay }: StatItemPr
       >
         <Icon className="w-7 h-7" style={{ color }} />
       </div>
-      
-      <div 
+
+      <div
         className="text-4xl sm:text-5xl font-display font-bold mb-2"
         style={{ color }}
       >
         <AnimatedCounter value={value} suffix={suffix} />
       </div>
-      
+
       <div className="text-gray-400 text-sm">{label}</div>
     </motion.div>
   );
 };
 
 const stats = [
-  { value: 2, suffix: '+', label: 'Years Experience', icon: Clock, color: '#6366f1' },
-  { value: 15, suffix: '+', label: 'Technologies', icon: Code2, color: '#06b6d4' },
-  { value: 20, suffix: '+', label: 'Projects Completed', icon: Briefcase, color: '#ec4899' },
-  { value: 10, suffix: '+', label: 'Happy Clients', icon: Users, color: '#3b82f6' },
+  {
+    value: 2,
+    suffix: "+",
+    label: "Years Experience",
+    icon: Clock,
+    color: "#6366f1",
+  },
+  {
+    value: 15,
+    suffix: "+",
+    label: "Technologies",
+    icon: Code2,
+    color: "#06b6d4",
+  },
+  {
+    value: 20,
+    suffix: "+",
+    label: "Projects Completed",
+    icon: Briefcase,
+    color: "#ec4899",
+  },
+  {
+    value: 10,
+    suffix: "+",
+    label: "Happy Clients",
+    icon: Users,
+    color: "#3b82f6",
+  },
 ];
 
 const achievements = [
   {
     icon: TrendingUp,
-    title: '35-40%',
-    subtitle: 'AI Role Growth',
-    description: 'Annual growth rate in AI-integrated positions',
-    color: '#6366f1',
+    title: "35-40%",
+    subtitle: "AI Role Growth",
+    description: "Annual growth rate in AI-integrated positions",
+    color: "#6366f1",
   },
   {
     icon: Target,
-    title: '50%+',
-    subtitle: 'Demand Gap',
-    description: 'Unfilled AI developer positions globally',
-    color: '#06b6d4',
+    title: "50%+",
+    subtitle: "Demand Gap",
+    description: "Unfilled AI developer positions globally",
+    color: "#06b6d4",
   },
   {
     icon: Zap,
-    title: '$3.5B',
-    subtitle: 'Market by 2030',
-    description: 'Projected Agentic AI market size',
-    color: '#ec4899',
+    title: "$3.5B",
+    subtitle: "Market by 2030",
+    description: "Projected Agentic AI market size",
+    color: "#ec4899",
   },
   {
     icon: Award,
-    title: '92%',
-    subtitle: 'Career Match',
-    description: 'Alignment with AI-Integrated Full Stack path',
-    color: '#3b82f6',
+    title: "92%",
+    subtitle: "Career Match",
+    description: "Alignment with AI-Integrated Full Stack path",
+    color: "#3b82f6",
   },
 ];
 
@@ -160,24 +198,20 @@ const Stats = () => {
           </h2>
 
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Quantifiable results and market positioning that demonstrate 
-            the value I bring to every project.
+            Quantifiable results and market positioning that demonstrate the
+            value I bring to every project.
           </p>
         </motion.div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-20">
           {stats.map((stat, index) => (
-            <StatItem
-              key={stat.label}
-              {...stat}
-              delay={index * 0.1}
-            />
+            <StatItem key={stat.label} {...stat} delay={index * 0.1} />
           ))}
         </div>
 
         {/* Market Position Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -186,10 +220,10 @@ const Stats = () => {
           <h3 className="text-2xl sm:text-3xl font-display font-bold text-white text-center mb-10">
             Market Position & Opportunities
           </h3>
-        </motion.div>
+        </motion.div> */}
 
         {/* Achievements Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {achievements.map((item, index) => (
             <motion.div
               key={item.title}
@@ -198,9 +232,9 @@ const Stats = () => {
               transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
               whileHover={{ scale: 1.03, y: -8 }}
               className="glass rounded-2xl p-6 text-center group cursor-pointer relative overflow-hidden"
-            >
-              {/* Icon */}
-              <div 
+            > */}
+        {/* Icon */}
+        {/* <div 
                 className="w-12 h-12 rounded-xl mx-auto mb-4 flex items-center justify-center transition-transform group-hover:scale-110"
                 style={{ 
                   background: `linear-gradient(135deg, ${item.color}20, ${item.color}10)`,
@@ -208,24 +242,24 @@ const Stats = () => {
                 }}
               >
                 <item.icon className="w-6 h-6" style={{ color: item.color }} />
-              </div>
+              </div> */}
 
-              {/* Value */}
-              <div 
+        {/* Value */}
+        {/* <div 
                 className="text-3xl sm:text-4xl font-display font-bold mb-1"
                 style={{ color: item.color }}
               >
                 {item.title}
-              </div>
+              </div> */}
 
-              {/* Subtitle */}
-              <div className="text-white font-medium mb-2">{item.subtitle}</div>
+        {/* Subtitle */}
+        {/* <div className="text-white font-medium mb-2">{item.subtitle}</div> */}
 
-              {/* Description */}
-              <div className="text-gray-400 text-sm">{item.description}</div>
+        {/* Description */}
+        {/* <div className="text-gray-400 text-sm">{item.description}</div> */}
 
-              {/* Hover Glow */}
-              <div 
+        {/* Hover Glow */}
+        {/* <div 
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{
                   background: `radial-gradient(circle at center, ${item.color}10 0%, transparent 70%)`,
@@ -233,10 +267,10 @@ const Stats = () => {
               />
             </motion.div>
           ))}
-        </div>
+        </div> */}
 
         {/* Salary Progression */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.9 }}
@@ -248,9 +282,24 @@ const Stats = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { period: 'Current (2 years)', range: '6-12 LPA', level: 'Mid-level Developer', color: '#6366f1' },
-              { period: '6 months (AI skills)', range: '12-18 LPA', level: 'AI-Integrated Developer', color: '#06b6d4' },
-              { period: '12 months', range: '18-28 LPA', level: 'Senior AI Developer', color: '#ec4899' },
+              {
+                period: "Current (2 years)",
+                range: "6-12 LPA",
+                level: "Mid-level Developer",
+                color: "#6366f1",
+              },
+              {
+                period: "6 months (AI skills)",
+                range: "12-18 LPA",
+                level: "AI-Integrated Developer",
+                color: "#06b6d4",
+              },
+              {
+                period: "12 months",
+                range: "18-28 LPA",
+                level: "Senior AI Developer",
+                color: "#ec4899",
+              },
             ].map((item, index) => (
               <motion.div
                 key={item.period}
@@ -259,13 +308,15 @@ const Stats = () => {
                 transition={{ delay: 1 + index * 0.1 }}
                 className="relative"
               >
-                <div 
+                <div
                   className="absolute left-0 top-0 bottom-0 w-1 rounded-full"
                   style={{ background: item.color }}
                 />
                 <div className="pl-6">
-                  <div className="text-gray-400 text-sm mb-1">{item.period}</div>
-                  <div 
+                  <div className="text-gray-400 text-sm mb-1">
+                    {item.period}
+                  </div>
+                  <div
                     className="text-2xl sm:text-3xl font-bold mb-1"
                     style={{ color: item.color }}
                   >
@@ -276,7 +327,7 @@ const Stats = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

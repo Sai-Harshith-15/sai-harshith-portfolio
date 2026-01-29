@@ -1,40 +1,40 @@
-import { motion } from 'framer-motion';
-import { Code2, Heart, ArrowUp } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Code2, Heart, ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
     {
-      title: 'Navigation',
+      title: "Navigation",
       links: [
-        { name: 'Home', href: '#home' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'About', href: '#about' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Contact', href: '#contact' },
+        { name: "Home", href: "#home" },
+        { name: "Skills", href: "#skills" },
+        { name: "About", href: "#about" },
+        { name: "Projects", href: "#projects" },
+        { name: "Contact", href: "#contact" },
       ],
     },
     {
-      title: 'Technologies',
+      title: "Technologies",
       links: [
-        { name: 'React & Next.js', href: '#' },
-        { name: 'Python & FastAPI', href: '#' },
-        { name: 'AI & Machine Learning', href: '#' },
-        { name: 'Cloud & DevOps', href: '#' },
+        { name: "React & Next.js", href: "#" },
+        { name: "Python & FastAPI", href: "#" },
+        { name: "AI & Machine Learning", href: "#" },
+        { name: "Cloud & DevOps", href: "#" },
       ],
     },
     {
-      title: 'Connect',
+      title: "Connect",
       links: [
-        { name: 'LinkedIn', href: '#' },
-        { name: 'GitHub', href: '#' },
-        { name: 'Twitter', href: '#' },
-        { name: 'Email', href: 'mailto:hello@developer.ai' },
+        { name: "LinkedIn", href: "#" },
+        { name: "GitHub", href: "#" },
+        { name: "Twitter", href: "#" },
+        { name: "Email", href: "mailto:hello@developer.ai" },
       ],
     },
   ];
@@ -63,13 +63,14 @@ const Footer = () => {
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-galaxy-purple to-galaxy-cyan blur-lg opacity-50" />
               </div>
               <span className="text-xl font-display font-bold text-white">
-                Dev<span className="text-galaxy-cyan">.</span>AI
+                SH<span className="text-galaxy-cyan">.</span>
               </span>
             </motion.a>
 
             <p className="text-gray-400 text-sm mb-6 max-w-sm">
-              Full Stack & AI Developer specializing in building intelligent 
-              applications with modern technologies. Let's create something amazing together.
+              Full Stack & AI Developer specializing in building intelligent
+              applications with modern technologies. Let's create something
+              amazing together.
             </p>
 
             {/* Back to Top Button */}
@@ -108,11 +109,13 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-gray-400 text-sm text-center sm:text-left">
-              © {currentYear} Dev.AI. All rights reserved.
+              © {currentYear} SH. All rights reserved.
             </p>
 
             <p className="flex items-center gap-1 text-gray-400 text-sm">
-              Made with <Heart className="w-4 h-4 text-galaxy-pink fill-galaxy-pink" /> using React & Tailwind
+              Made with{" "}
+              <Heart className="w-4 h-4 text-galaxy-pink fill-galaxy-pink" />{" "}
+              using React & Tailwind
             </p>
           </div>
         </div>
