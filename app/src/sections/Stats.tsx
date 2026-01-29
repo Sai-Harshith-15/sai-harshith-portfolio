@@ -1,15 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import {
-  Briefcase,
-  Code2,
-  Users,
-  Award,
-  TrendingUp,
-  Clock,
-  Zap,
-  Target,
-} from "lucide-react";
+import { Briefcase, Code2, Users, TrendingUp, Clock } from "lucide-react";
 
 interface StatItemProps {
   value: number;
@@ -131,36 +122,36 @@ const stats = [
   },
 ];
 
-const achievements = [
-  {
-    icon: TrendingUp,
-    title: "35-40%",
-    subtitle: "AI Role Growth",
-    description: "Annual growth rate in AI-integrated positions",
-    color: "#6366f1",
-  },
-  {
-    icon: Target,
-    title: "50%+",
-    subtitle: "Demand Gap",
-    description: "Unfilled AI developer positions globally",
-    color: "#06b6d4",
-  },
-  {
-    icon: Zap,
-    title: "$3.5B",
-    subtitle: "Market by 2030",
-    description: "Projected Agentic AI market size",
-    color: "#ec4899",
-  },
-  {
-    icon: Award,
-    title: "92%",
-    subtitle: "Career Match",
-    description: "Alignment with AI-Integrated Full Stack path",
-    color: "#3b82f6",
-  },
-];
+// const achievements = [
+//   {
+//     icon: TrendingUp,
+//     title: "35-40%",
+//     subtitle: "AI Role Growth",
+//     description: "Annual growth rate in AI-integrated positions",
+//     color: "#6366f1",
+//   },
+//   {
+//     icon: Target,
+//     title: "50%+",
+//     subtitle: "Demand Gap",
+//     description: "Unfilled AI developer positions globally",
+//     color: "#06b6d4",
+//   },
+//   {
+//     icon: Zap,
+//     title: "$3.5B",
+//     subtitle: "Market by 2030",
+//     description: "Projected Agentic AI market size",
+//     color: "#ec4899",
+//   },
+//   {
+//     icon: Award,
+//     title: "92%",
+//     subtitle: "Career Match",
+//     description: "Alignment with AI-Integrated Full Stack path",
+//     color: "#3b82f6",
+//   },
+// ];
 
 const Stats = () => {
   const ref = useRef(null);

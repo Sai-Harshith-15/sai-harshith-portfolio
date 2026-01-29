@@ -2,12 +2,14 @@
   "name": "sai-harshith-portfolio",
   "version": "0.1.0",
   "homepage": "https://sai-harshith-15.github.io/sai-harshith-portfolio",
-
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

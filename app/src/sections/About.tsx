@@ -1,15 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import {
-  User,
-  Target,
-  Rocket,
-  Award,
-  TrendingUp,
-  Brain,
-  Code,
-  Sparkles,
-} from "lucide-react";
+import { User, Target, Rocket, Brain, Code, Sparkles } from "lucide-react";
 
 const highlights = [
   {
@@ -42,26 +33,26 @@ const highlights = [
   },
 ];
 
-const careerPaths = [
-  {
-    title: "AI-Integrated Full Stack",
-    match: "92%",
-    salary: "12-28 LPA",
-    description: "Primary focus on Python + React + AI Integration",
-  },
-  {
-    title: "Python Backend + AI",
-    match: "85%",
-    salary: "15-35 LPA",
-    description: "Deep backend expertise with AI microservices",
-  },
-  {
-    title: "Mobile-First Full Stack",
-    match: "78%",
-    salary: "10-22 LPA",
-    description: "Flutter + Firebase + Cross-platform development",
-  },
-];
+// const careerPaths = [
+//   {
+//     title: "AI-Integrated Full Stack",
+//     match: "92%",
+//     salary: "12-28 LPA",
+//     description: "Primary focus on Python + React + AI Integration",
+//   },
+//   {
+//     title: "Python Backend + AI",
+//     match: "85%",
+//     salary: "15-35 LPA",
+//     description: "Deep backend expertise with AI microservices",
+//   },
+//   {
+//     title: "Mobile-First Full Stack",
+//     match: "78%",
+//     salary: "10-22 LPA",
+//     description: "Flutter + Firebase + Cross-platform development",
+//   },
+// ];
 
 const About = () => {
   const ref = useRef(null);
